@@ -7,26 +7,29 @@ type RootStackParamList = {
 };
 
 export default function SignIn() {
-  const [text, onChangeText] = React.useState('');
+  const [email, onChangeTextEmail] = React.useState('');
+  const [password, onChangeTextPassword] = React.useState('');
 
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   return (
     <View>
       <Text style={styles.title}>Sign In</Text>
+
       <Text style={styles.titleText}>Email Address:</Text>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
+        onChangeText={onChangeTextEmail}
+        value={email}
         placeholder="enter email address"
       />
       <Text style={styles.titleText}>Password:</Text>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
+        onChangeText={onChangeTextPassword}
+        value={password}
         placeholder="enter password"
+        secureTextEntry
       />
       <View style={styles.button}>
         <Button title="Sign In" color="#841584" />
@@ -34,7 +37,11 @@ export default function SignIn() {
       <View>
         <Text style={styles.textButton}>
           Don't have an account?{' '}
-          <Text style={styles.textSignUp} onPress={() => navigation.navigate('SignUp')}>Sign up</Text>
+          <Text
+            style={styles.textSignUp}
+            onPress={() => navigation.navigate('SignUp')}>
+            Sign up
+          </Text>
         </Text>
       </View>
     </View>
