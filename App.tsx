@@ -11,24 +11,29 @@ import SignIn from './src/page/SignIn';
 import SignUp from './src/page/SignUp';
 import Header from './src/page/Header';
 
+import { Provider } from 'react-redux';
+import store from './store';
+
 function App(): React.JSX.Element {
   const Stack = createNativeStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Order" component={Order} />
-        <Stack.Screen name="Orders" component={Orders} />
-        <Stack.Screen name="Notifications" component={Notifications} />
-        <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-      </Stack.Navigator>
-      <Header />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Order" component={Order} />
+          <Stack.Screen name="Orders" component={Orders} />
+          <Stack.Screen name="Notifications" component={Notifications} />
+          <Stack.Screen name="SignIn" component={SignIn} />
+          <Stack.Screen name="SignUp" component={SignUp} />
+        </Stack.Navigator>
+        <Header />
+      </NavigationContainer>
+    </Provider>
   );
 }
 

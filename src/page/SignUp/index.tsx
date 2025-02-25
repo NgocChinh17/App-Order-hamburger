@@ -16,6 +16,10 @@ export default function SignUp() {
 
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
+  const handleSubmitSignUp = () => {
+    navigation.navigate('SignIn');
+  };
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -68,7 +72,7 @@ export default function SignUp() {
           <Button
             title="Sign Up"
             color="#841584"
-            // onPress={}
+            onPress={() => handleSubmitSignUp()}
           />
         </View>
 

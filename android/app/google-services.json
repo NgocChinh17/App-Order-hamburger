@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "439751221527",
+    "project_id": "order-hamburger",
+    "storage_bucket": "order-hamburger.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439751221527:android:96057fd6b754129d4dd752",
+        "android_client_info": {
+          "package_name": "com.testapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6dfPHzouuHPyTaFbPwhU0e1JD5Siak-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

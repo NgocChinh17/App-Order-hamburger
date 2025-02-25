@@ -1,12 +1,9 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
-import {
-  registerRequest,
-  registerSuccess,
-  registerFail,
-} from '../slicers/auth.slicers';
+
 import { Alert } from 'react-native';
+import { registerFail, registerRequest, registerSuccess } from '../slicers/auth.slicers';
 
 function* registerSaga(action) {
     try {
