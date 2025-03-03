@@ -1,7 +1,8 @@
 import React from 'react';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import auth from '@react-native-firebase/auth';
 
 type RootStackParamList = {
   SignUp: undefined;
@@ -17,7 +18,21 @@ export default function SignUp() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const handleSubmitSignUp = () => {
-    navigation.navigate('SignIn');
+    if (password !== confirmPassword) {
+      Alert.alert('Mật khẩu và xác nhận mật khẩu không khớp');
+      return;
+    }
+    auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        Alert.alert('Đăng ký thành công');
+        return navigation.navigate('SignIn');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          Alert.alert('Email đã tồn tại');
+        }
+      });
   };
 
   return (
@@ -75,7 +90,6 @@ export default function SignUp() {
             onPress={() => handleSubmitSignUp()}
           />
         </View>
-
         <View>
           <Text style={styles.textButton}>
             Already have an account?{' '}

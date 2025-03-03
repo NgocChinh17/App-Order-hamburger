@@ -11,14 +11,14 @@ import SignIn from './src/page/SignIn';
 import SignUp from './src/page/SignUp';
 import Header from './src/page/Header';
 
-import { Provider } from 'react-redux';
-import store from './store';
+// import { Provider } from 'react-redux';
+// import store from './store';
 
 function App(): React.JSX.Element {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -33,7 +33,7 @@ function App(): React.JSX.Element {
         </Stack.Navigator>
         <Header />
       </NavigationContainer>
-    </Provider>
+    // </Provider>
   );
 }
 
